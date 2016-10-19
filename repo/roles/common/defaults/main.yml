@@ -1,0 +1,4 @@
+ssh:
+  permit_root_login: false
+  password_authentication: false
+  use_dns: false
