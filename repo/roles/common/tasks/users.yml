@@ -4,5 +4,14 @@
     with_items: users
 
   - name: manage users public ssh keys
-    authorized_key: user="{{ item.name }}" key="{{ lookup('file', 'ssh/public_keys/{{ item.name }}.pub') }}"
+    authorized_key: user="{{ item.0.name }}" key="{{ item.1 }}"
+    with_subelements:
+      - users
+      - public_keys
+
+  - name: manage user sudo
+    template: src=templates/etc/sudoers.d/user.j2 dest="/etc/sudoers.d/{{ item.name }}" owner=root group=root mode=0644
+    vars:
+      username: "{{ item.name }}"
     with_items: users
+    when: "{{ item.sudo }}"

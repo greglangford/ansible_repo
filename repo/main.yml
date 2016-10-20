@@ -2,8 +2,8 @@
   - hosts: all
     become: true
     become_user: root
-    vars:
-      - include: users.yml
-      
+    vars_files:
+      - users.yml
+
     roles:
       - common

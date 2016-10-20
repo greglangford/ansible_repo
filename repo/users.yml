@@ -1,7 +1,10 @@
-users:
-  - name: glangford
-    comment: Greg Langford
-    password: $1$vagrant$VZf480URTHkJOVA/uDpGT0
-    ansible_groups:
-      - webservers
-    state: present
+---
+  users:
+    - name: glangford
+      comment: Greg Langford
+      password: $1$vagrant$VZf480URTHkJOVA/uDpGT0
+      sudo: false
+      public_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxU1B4FxSZaKaB89d1KRUVZRo0PIT/2djQ6W+OhPBneZtUAqjuJmDjBvVp2TZs8PkH3C8JroT/bs/mmhYyEN1Z8nC9248USMbOk8e69wonHDOPlx78dg/UxKlNpElDdhCWrm/xseyr05ssKU2Avy/rFFEk7f8JZw9KHjksvwPnijavks/tMq9UqO0+BuLsGgNRARrFBCoi3uSTjmdDgFz3trWkzGk9zVbusUysxoiwePVUxyS5kXXF9FgDX5tDnPmK1ihtDxQq4i6KvWuBmBEvPBWLd1lkZLhlrXkuIBM+pv/nIgE0P8s6irusaAXLJwNu3P7a4PxAh0xRzZKOf0eH
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDN6pQBHqAty+xRsVkrfVgrwyBGCEvEEiepndyENLhFJlgg9KCARUKR9+48jwHF+8bra20LUN/1ebkDZnv8I6yrACfFkXHS80WMuQ62NqrdvikEm3oF9Q7VBzqwk44WEzfVLDuzOFrks8mcTeTUTE/GZNnP4YGmKDDFlpLLJWTynZu91Qbpnpkaz+Q3AJtF6muSls9Kv4rNifPeh0KxbW3oAvR43MFipt8/84Q49jaVOVrLaFNZZ0dgavAPPrblH+cqfNYM4aEYlfpxVBT6t2N1vSANc0N5aGoqgMbyRvbDWowKztg1EdNnC5eJKjW8bFm/ZYeDWBYdArNXK95+M7uL greg@greg-thinkpad
+      state: present
