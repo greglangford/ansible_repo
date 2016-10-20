@@ -1,16 +1,4 @@
 ---
-  - name: modify sshd configuration file
-    template: src=templates/etc/ssh/sshd_config.j2 dest=/etc/ssh/sshd_config owner=root group=root mode=0600
-    notify:
-      - restart sshd
-
-  - name: manage users
-    user: name="{{ item.name }}" comment="{{ item.comment }}" state="{{ item.state }}"
-    with_items: users
-
-  - name: manage users public ssh keys
-    authorized_key: user="{{ item.name }}" key="{{ lookup('file', 'ssh/public_keys{{ item.name }}.pub') }}"
-    with_items: users
-
-  - name: upgrade packages
-    yum: name=* state=latest update_cache=yes
+  - include: ssh.yml
+  - include: users.yml
+  - include: yum.yml

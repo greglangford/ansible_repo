@@ -2,4 +2,6 @@ users:
   - name: glangford
     comment: Greg Langford
     password: $1$vagrant$VZf480URTHkJOVA/uDpGT0
+    ansible_groups:
+      - webservers
     state: present

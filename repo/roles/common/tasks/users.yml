@@ -1,0 +1,8 @@
+---
+  - name: manage users
+    user: name="{{ item.name }}" comment="{{ item.comment }}" state="{{ item.state }}"
+    with_items: users
+
+  - name: manage users public ssh keys
+    authorized_key: user="{{ item.name }}" key="{{ lookup('file', 'ssh/public_keys/{{ item.name }}.pub') }}"
+    with_items: users
