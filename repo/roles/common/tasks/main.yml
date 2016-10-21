@@ -1,4 +1,4 @@
 ---
   - include: ssh.yml
   - include: users.yml
-  - include: yum.yml
+#  - include: yum.yml
